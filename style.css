@@ -1,0 +1,69 @@
+@font-face{
+    src: url(Fonts/Lato/Lato-Black.ttf);
+    font-family: nos;
+}
+            textarea{
+                resize: none;
+                width: 100%;
+                height: 150px;
+                padding: 8px 8px;
+                border: 1px solid #BAB2B5;
+                box-sizing: border-box;
+                border-radius: 4px; 
+                background-color: #EEE2DC;
+                font-size: 16px;
+                font-family: "nos";
+            }
+            .mainInput{
+                box-sizing: border-box;
+                padding: 6px 8x;
+                margin: 0 0 10px 0;
+                border-radius: 4px; 
+                background-color: #EEE2DC;
+                border: 1px solid #BAB2B5;
+                font-size: 14px;
+                font-family: "nos";
+            }
+            .long{
+                width: 50%;
+            }
+            .medium{
+                width: 80px;
+            }
+            .short{
+                width: 25px;
+            }
+
+            label{
+                color:black;
+                font-size: 14px;
+                font-family: "nos";
+            }
+            button{
+                border:none;
+                text-align: center;
+                border-radius: 4px; 
+                font-size: 24px;
+                font-family: "nos";
+                cursor: pointer
+            }
+            .mainEnter{
+                width: 100px;
+                background-color: #AC3B61;
+                color: black;
+                margin: 0 0 40px 0;
+            }
+
+            .wordTitle{
+                text-align: center;
+                font-family: "nos";
+                font-size: 30px;
+                color: black;
+            }
+            .uiZone{
+                background-color:#EDC7B7;
+                width: 25%;
+                height: 500px;
+                padding: 20px;
+                border-radius: 5px;
+            }

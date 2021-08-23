@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Word Finder</title>
+        <link rel = "stylesheet" href="style.css">
+
+    </head>
+    <body>
+        <div class = "uiZone">
+        <h2 class = "wordTitle">Word Finder</h2><br>
+        <form name = "dicTrieInput">
+            <label> <b>Letters:</b> </label> <br>
+            <input type = "text" class = "mainInput long" name="letters"> <br>
+
+            <label> <b>Required:</b> </label> <br>
+            <input type = "text" class = "mainInput medium" name="required"> <br>
+
+            <label> <b>Minimum Length:</b> </label> <br>
+            <input type = "text" class = "mainInput short" name="minlength" maxlength=1> <br>
+
+            <button type = "button" onclick = "getInputs()" class="mainEnter"> Enter </button>
+        </form>
+        <textarea name="response"> </textarea>
+        </div>
+        <script src="apiCall.js">
+        </script> 
+    </body>
