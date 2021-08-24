@@ -17,7 +17,7 @@
             .mainInput{
                 box-sizing: border-box;
                 padding: 6px 8x;
-                margin: 0 0 10px 0;
+                margin: 0 0 0px 0;
                 border-radius: 4px; 
                 background-color: #EEE2DC;
                 border: 1px solid #BAB2B5;
@@ -66,4 +66,13 @@
                 height: 500px;
                 padding: 20px;
                 border-radius: 5px;
+            }
+            .errorMSG{
+                display:none;
+                font-size: 10px;
+                font-family: "arial";
+                color: red;
+            }
+            .inputField{
+                margin: 0px 0px 10px 0px;
             }

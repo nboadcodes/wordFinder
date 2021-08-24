@@ -20,6 +20,22 @@ function createURL(inputs){
     //callAPI(preURL);
 }
 
+function errorInput(isError, errorText, itemName){
+    let errorEle = document.getElementsByName(itemName + "Error")[0];
+    let errorDiv = document.getElementsByName(itemName + "Field")[0];
+    if(isError){
+        console.log("bad " + itemName);
+        errorEle.innerHTML = errorText;
+        errorEle.style.display = "block";
+        errorDiv.style.marginBottom = "-1px";
+    }
+    else{
+        errorEle.style.display = "none";
+        errorDiv.style.marginBottom = "10px";
+    }
+    return isError;
+}
+
 //getInputs: retrieves inputs from HTML objects and checks if they are valid
 //calls createURL if the inputs are valid, otherwise displays error message on HTML
 function getInputs(){
@@ -28,24 +44,15 @@ function getInputs(){
     let required = form.elements.required.value;
     let minlength = form.elements.minlength.value;
 
+    let goodInputs = true;
     let lettersRegex = /^[a-zA-Z]+$/;
-    if(!lettersRegex.test(letters)){
-        console.log("bad letters");
-    }
-    if(!lettersRegex.test(required)){
-        console.log("bad required");
-    }
-    if(!Number.isInteger(parseInt(minlength, 10)) || parseInt(minlength, 10) < 0){
-        console.log("bad number");   
-    }
-    if(!Number.isInteger(parseInt(minlength, 10))){
-        console.log("bad number(integer)");   
-    }
-    if(parseInt(minlength, 10) < 0){
-        console.log("bad number(negative)");
-    }
 
-    createURL([letters, required, minlength]);
+    if(errorInput(!lettersRegex.test(letters), "*Please only use letters", "letters")) goodInputs = false;
+    if(errorInput(!lettersRegex.test(required), "*Please only use letters", "required")) goodInputs = false;
+    if(errorInput(!Number.isInteger(parseInt(minlength, 10)) || 
+        parseInt(minlength, 10) < 0 , "*Please input a valid integer 0-9", "minlength")) goodInputs = false;
+
+    if(goodInputs) createURL([letters, required, minlength]);
 }
 
 
