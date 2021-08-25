@@ -3,33 +3,31 @@
     <head>
         <title>Word Finder</title>
         <link rel = "stylesheet" href="style.css">
-
     </head>
     <body>
         <div class = "uiZone">
-        <h2 class = "wordTitle">Word Finder</h2><br>
-        <form name = "dicTrieInput">
-            <div class = "inputField" name = "lettersField">
-                <label> <b>Letters:</b> </label> <br>
-                <input type = "text" class = "mainInput long" name="letters"> <br>
-                <div name = "lettersError" class="errorMSG"></div>
-            </div>
-            <div class = "inputField" name = "requiredField"> 
-                <label> <b>Required:</b> </label> <br>
-                <input type = "text" class = "mainInput medium" name="required"> <br>
-                <div name = "requiredError" class="errorMSG"></div>
-            </div>
-            <div class = "inputField" name = "minlengthField">
-                <label> <b>Minimum Length:</b> </label> <br>
-                <input type = "text" class = "mainInput short" name="minlength" maxlength=1> <br>
-                <div name = "minlengthError" class="errorMSG"></div>
-            </div>
-            <button type = "button" onclick = "getInputs()" class="mainEnter"> Enter </button>
-        </form>
-        <textarea name="response"> </textarea>
+            <h2 class = "wordTitle">Word Finder</h2><br>
+            <form name = "dicTrieInput" id = "dicTrieInput">
+                <div class = "inputField" name = "lettersField" id = "lettersField">
+                    <label> <b>Letters:</b> </label> <br>
+                    <input type = "text" class = "mainInput long" name="letters" id = "letters"> <br>
+                    <div name = "lettersError" id = "lettersError" class="errorMSG"> /div>
+                </div>
+                <div class = "inputField" name = "requiredField" id = "requiredField"> 
+                    <label> <b>Required:</b> </label> <br>
+                    <input type = "text" class = "mainInput medium" name="required" id = "required"> <br>
+                    <div name = "requiredError" id = "requiredError" class="errorMSG"> </div>
+                </div>
+                <div class = "inputField" name = "minlengthField" id="minlengthField">
+                    <label> <b>Minimum Length:</b> </label> <br>
+                    <input type = "text" class = "mainInput short" name="minlength" id="minlength" maxlength=1> <br>
+                    <div name = "minlengthError" id = "minlengthError" class="errorMSG"> </div>
+                </div>
+                <button type = "button" onclick = "getInputs()" class="mainEnter"> Enter </button>
+            </form>
+            <textarea name="response" id = "response"> </textarea>
         </div>
-        <script src="apiCall.js">
-        </script> 
+        <script src="apiCall.js"> </script> 
+        <script src="jquery-3.6.0.slim.min.js"> </script>
     </body>
-    
 </html>    
