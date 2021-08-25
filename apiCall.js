@@ -16,8 +16,8 @@ function createURL(inputs){
     preURL = preURL + "&required=" + inputs[1];
     preURL = preURL + "&minlength=" + inputs[2] + "&inputtype=serialized&inputsource=serialization";
     console.log(preURL);
-    return preURL;
-    //callAPI(preURL);
+    //return preURL;
+    callAPI(preURL);
 }
 
 function errorInput(isError, errorText, itemName){
