@@ -13,7 +13,7 @@ async function callAPI(url){
 async function createURL(letters, required, minlength){
     let preURL = `https://dfl5ygive1.execute-api.us-west-2.amazonaws.com/test/nytwordpuzzles?letters=${letters}&required=${required}&minlength=${minlength}&inputtype=serialized&inputsource=serialization`;
     console.log(preURL);
-    //await callAPI(preURL);
+    await callAPI(preURL);
     return preURL; //return is not used
 }
 
