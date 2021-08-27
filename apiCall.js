@@ -11,11 +11,9 @@ async function callAPI(url){
 //inputs is an array of 3 values that contains [letters, required, minlength]
 //returns URL
 async function createURL(letters, required, minlength){
-    let preURL = `https://dfl5ygive1.execute-api.us-west-2.amazonaws.com/test/nytwordpuzzles?
-                    letters=${letters}&required=${required}&minlength=${minlength}&
-                    inputtype=serialized&inputsource=serialization`;
+    let preURL = `https://dfl5ygive1.execute-api.us-west-2.amazonaws.com/test/nytwordpuzzles?letters=${letters}&required=${required}&minlength=${minlength}&inputtype=serialized&inputsource=serialization`;
     console.log(preURL);
-    await callAPI(preURL);
+    //await callAPI(preURL);
     return preURL; //return is not used
 }
 
@@ -38,20 +36,23 @@ function errorInput(isError, errorText, itemName){
 //getInputs: retrieves inputs from HTML objects and checks if they are valid
 //calls createURL if the inputs are valid, otherwise displays error message on HTML
 async function getInputs(){
-    let form = document.forms.dicTrieInput;
-    let letters = form.elements.letters.value;
-    let required = form.elements.required.value;
-    let minlength = form.elements.minlength.value;
+    let [letters, required, minlength] = jQuery(`form[name=dicTrieInput]`).serializeArray().map(e =>e.value);
+    console.log(jQuery(`form[name=dicTrieInput]`).serializeArray());
+    console.log(letters);
+    console.log(required);
+    console.log(minlength);
 
-    let goodInputs = true;
     let alphaRegex = /^[a-zA-Z]+$/;
 
-    if(errorInput(!alphaRegex.test(letters), "*Please only use letters", "letters")) goodInputs = false;
-    if(errorInput(!alphaRegex.test(required), "*Please only use letters", "required")) goodInputs = false;
-    if(errorInput(!Number.isInteger(parseInt(minlength, 10)) || 
-        parseInt(minlength, 10) < 0 , "*Please input a valid integer 0-9", "minlength")) goodInputs = false;
-
-    if(goodInputs) await createURL([letters, required, minlength]);
+    if(fullAnd(!errorInput(!alphaRegex.test(letters), "*Please only use letters", "letters"),
+                !errorInput(!alphaRegex.test(required), "*Please only use letters", "required"),
+                !errorInput(!Number.isInteger(parseInt(minlength, 10)) || parseInt(minlength, 10) < 0 , "*Please input a valid integer 0-9", "minlength"))){
+        await createURL(letters, required, minlength);
+    }
 }
 
+//And function without shortcircuiting
+function fullAnd() {
+    return Array.from(arguments).every(e => e)
+}
 //Input handling, implement timeout request, deal with blank required field
